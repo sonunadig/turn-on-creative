@@ -1,0 +1,28 @@
+.headingWrapper {
+  position: absolute;
+  top: 0; /* These will be relative to the parent div that wraps TextCutThroughHeading */
+  left: 0;
+  right: 0;
+  pointer-events: none; /* Allows clicks/interactions to pass through the text */
+}
+
+/* The lower layer of text (filled) */
+.behind {
+  z-index: 1; /* This will be behind the image (which has z-index: 3) */
+}
+
+/* The upper layer of text (stroked) */
+.front {
+  z-index: 5; /* This will be in front of the image (which has z-index: 3) */
+}
+
+/* Styling for the filled text */
+.filled {
+  color: #1a1a1a; /* Example color, consider using a CSS variable */
+}
+
+/* Styling for the stroked text */
+.stroked {
+  color: transparent;
+  -webkit-text-stroke: 0.8px #f7e8c6; /* Example stroke color, consider using a CSS variable */
+}

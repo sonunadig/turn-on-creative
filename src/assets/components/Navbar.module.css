@@ -1,0 +1,132 @@
+/* src/components/Navbar.module.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem; /* Laptop default padding */
+  position: relative; /* Needed for absolute positioning of mobile menu */
+  z-index: 100; /* Ensure navbar stays on top */
+}
+
+/* --- Upscaling for Large Desktops --- */
+@media (min-width: 1441px) {
+  .navbar {
+    padding: 2rem 5rem; /* More generous padding on very wide screens */
+    max-width: 1600px; /* Optional: cap the max width of the navbar itself */
+    margin: 0 auto; /* Center it if max-width is applied */
+  }
+}
+
+.logo h2 {
+  margin: 0;
+  line-height: 0;
+  /* Adjust font size for responsiveness if needed */
+  font-size: var(--font-size-h3); /* Using your global variable */
+}
+
+/* --- Menu Toggle (Hamburger Icon) Styles --- */
+.menuToggle {
+  display: none; /* Hidden by default on laptop/desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 101; /* Above navlinks */
+  /* Style your hamburger lines */
+  flex-direction: column;
+  gap: 6px; /* Space between lines */
+  width: 30px; /* Width of the icon */
+  position: relative;
+}
+
+.hamburgerLine {
+  height: 2px;
+  background-color: var(--color-text); /* Use your text color variable */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Styles for when menu is open (hamburger animates to an X) */
+.menuToggle[aria-expanded="true"] .hamburgerLine:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menuToggle[aria-expanded="true"] .hamburgerLine:nth-child(2) {
+  opacity: 0; /* Middle line fades out */
+}
+.menuToggle[aria-expanded="true"] .hamburgerLine:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- Navigation Links (Default - Laptop/Desktop) --- */
+.navlinks {
+  list-style: none;
+  display: flex; /* Display as flex for horizontal layout */
+  gap: 24px; /* Default gap for laptop */
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease-in-out; /* For smooth mobile menu open/close */
+}
+
+.navlinks li {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: var(--font-size-base); /* Using your global variable */
+}
+
+/* --- Downscaling for Tablets and Mobiles --- */
+
+@media (max-width: 768px) {
+  /* Tablet Styles */
+  .navbar {
+    padding: 1.5rem; /* Slightly less padding */
+  }
+
+  /* Make hamburger icon visible */
+  .menuToggle {
+    display: flex; /* Show the hamburger icon */
+  }
+
+  /* Hide original navlinks by default on tablet/mobile */
+  .navlinks {
+    display: flex; /* Keep flex for now */
+    flex-direction: column; /* Stack vertically in mobile menu */
+    position: absolute; /* Position the menu overlay */
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh; /* Full viewport height */
+    background-color: var(--color-background); /* Use your background color */
+    justify-content: center; /* Center links vertically */
+    align-items: center; /* Center links horizontally */
+    transform: translateX(100%); /* Start off-screen to the right */
+    opacity: 0;
+    pointer-events: none; /* Disable interaction when hidden */
+    z-index: 99; /* Below toggle, above content */
+  }
+
+  /* Style for opened mobile menu */
+  .navlinksOpen {
+    transform: translateX(0); /* Slide in from the right */
+    opacity: 1;
+    pointer-events: all;
+    z-index: 99; /* Enable interaction */
+  }
+
+  .navlinks li {
+    padding: 1rem 0; /* More spacing for mobile links */
+    font-size: var(--font-size-h4); /* Larger font for mobile menu links */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile Portrait Specific Adjustments */
+  .navbar {
+    padding: 1rem 0 0 0; /* Even less padding for small phones */
+  }
+  .logo h2 {
+    font-size: var(--font-size-h4); /* Adjust logo size */
+  }
+  .navlinks li {
+    font-size: var(--font-size-h5); /* Adjust link size */
+  }
+}

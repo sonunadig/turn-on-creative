@@ -1,0 +1,61 @@
+/* src/sections/HeroSection.module.css */
+
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.heading {
+  text-align: center;
+  /* Convert to rem for default (laptop) size */
+  font-size: 5.625rem; /* 90px / 16px = 5.625rem */
+  line-height: 1.1; /* Adjust line-height for readability */
+
+  /* --- Responsive Font Size for Heading --- */
+
+  /* Up-scaling for Large Desktops */
+  @media (min-width: 1441px) {
+    /* Slightly larger font for very wide screens */
+    font-size: 6.5rem; /* ~104px */
+  }
+
+  /* Fluid typography using clamp() for smoother scaling */
+  /* This will try to keep the font size between 2.5rem (min) and 5.625rem (max),
+     scaling proportionally with viewport width (vw) for screens between 480px and 1200px.
+     Adjust these values (min, preferred, max) to fit your design. */
+  font-size: clamp(2.5rem, 6vw + 1rem, 5.625rem); /* Example: 40px, 6vw, 90px */
+
+  /* Down-scaling for Tablets and Mobiles */
+  @media (max-width: 768px) {
+    font-size: clamp(2.2rem, 5vw + 1rem, 4rem); /* Smaller on tablets */
+  }
+
+  @media (max-width: 480px) {
+    font-size: clamp(2.2rem, 5vw + 1rem, 4rem); /* Even smaller on mobiles */
+  }
+}
+
+.buttonWrapper {
+  /* Convert to rem for default (laptop) size */
+  margin-bottom: 3.125rem; /* 50px / 16px = 3.125rem */
+
+  /* --- Responsive Margin for Button Wrapper --- */
+  @media (max-width: 768px) {
+    margin-bottom: 2rem; /* Reduce margin on tablets */
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 1.5rem; /* Further reduce margin on mobiles */
+  }
+}

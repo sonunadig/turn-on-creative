@@ -1,0 +1,253 @@
+.footer {
+  margin-top: 3%;
+  padding: 3rem;
+  color: #000;
+}
+
+/* === CTA Section === */
+.ctaSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+  gap: 5%;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  padding: 0 1rem; /* Add some horizontal padding for desktop, can be adjusted */
+}
+
+.ctaHeading {
+  font-size: 72px;
+  line-height: 1.1;
+  width: 50%; /* Desktop: 50% width */
+  font-weight: 400;
+  margin: 0; /* Remove default margin */
+}
+
+.ctaRight {
+  width: 30%; /* Desktop: 30% width */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aligns contents to the right */
+  text-align: right; /* Aligns text within its container to the right */
+  gap: 1rem;
+}
+
+.ctaText {
+  font-size: 24px;
+  margin: 0;
+}
+
+.footerUnderlineButton {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 24px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+
+.footerUnderlineButton:hover {
+  color: #555;
+}
+
+/* === Footer Info === */
+.footerMain {
+  margin-top: 4rem;
+  padding: 0 1rem; /* Add some horizontal padding for desktop, can be adjusted */
+}
+
+.footerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.siteTitle {
+  font-size: 64px;
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+  color: transparent;
+  margin: 0;
+}
+
+.footerNav {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap; /* Allows navigation items to wrap if needed */
+  justify-content: center; /* Centers items if they wrap */
+}
+
+/* Divider */
+.divider {
+  border: 0;
+  border-top: 1px solid #333;
+  margin: 2rem 0;
+}
+
+/* Bottom Bar */
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  font-size: 16px;
+}
+
+/* ========================================================= */
+/* Responsive Media Queries */
+/* ========================================================= */
+
+/* For tablets and smaller desktops */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 2rem; /* Reduce overall padding */
+  }
+
+  .ctaSection {
+    margin-bottom: 3rem;
+  }
+
+  .ctaHeading {
+    font-size: clamp(48px, 6vw, 64px); /* Smaller on tablets */
+  }
+
+  .ctaText,
+  .footerUnderlineButton {
+    font-size: 20px;
+  }
+
+  .siteTitle {
+    font-size: clamp(48px, 6vw, 56px); /* Smaller on tablets */
+  }
+
+  .footerNav {
+    font-size: 16px;
+    gap: 1.5rem;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem; /* Even smaller padding on mobile */
+  }
+
+  /* --- CTA Section Mobile --- */
+  .ctaSection {
+    flex-direction: column; /* Stack heading and right content vertically */
+    align-items: center; /* Center items horizontally in the column */
+    gap: 2rem; /* Vertical gap between stacked items */
+    margin-bottom: 2.5rem;
+    padding: 0; /* Remove specific horizontal padding if section handles it */
+  }
+
+  .ctaHeading {
+    width: 100%; /* Take full width */
+    text-align: center; /* Center the heading text */
+    font-size: clamp(32px, 8vw, 48px); /* Significantly smaller on mobile */
+    line-height: 1.2;
+  }
+
+  .ctaRight {
+    width: 100%; /* Take full width */
+    align-items: center; /* Center its contents (text and button) */
+    text-align: center; /* Center text within .ctaText */
+    gap: 1rem;
+  }
+
+  .ctaText {
+    font-size: 18px; /* Smaller text size */
+  }
+
+  .footerUnderlineButton {
+    font-size: 18px;
+    text-underline-offset: 6px;
+  }
+
+  /* --- Footer Info Section Mobile --- */
+  .footerMain {
+    margin-top: 2.5rem;
+    padding: 0; /* Remove specific horizontal padding if section handles it */
+  }
+
+  .footerTop {
+    flex-direction: column; /* Stack title and nav vertically */
+    align-items: center; /* Center items */
+    gap: 1.5rem; /* Vertical gap */
+    text-align: center; /* Ensure title is centered */
+  }
+
+  .siteTitle {
+    font-size: clamp(36px, 9vw, 48px); /* Smaller site title */
+  }
+
+  .footerNav {
+    font-size: 16px;
+    gap: 1.2rem; /* Smaller gap for nav items, still horizontal */
+    flex-wrap: wrap; /* Allow nav items to wrap if screen is very narrow */
+    justify-content: center; /* Center wrapped items */
+  }
+
+  .divider {
+    margin: 1.5rem 0; /* Smaller margin for divider */
+  }
+
+  .footerBottom {
+    flex-direction: column; /* Stack copyright and socials vertically */
+    align-items: center; /* Center items */
+    gap: 1rem; /* Vertical gap */
+    text-align: center; /* Center copyright text */
+  }
+
+  .copy {
+    font-size: 13px; /* Slightly smaller copyright text */
+  }
+
+  .socials {
+    font-size: 15px; /* Slightly smaller social icons */
+  }
+}
+
+/* Further adjustments for very small mobile screens */
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem;
+  }
+
+  .ctaHeading {
+    font-size: clamp(28px, 7vw, 36px);
+  }
+
+  .ctaText,
+  .footerUnderlineButton {
+    font-size: 16px;
+  }
+
+  .siteTitle {
+    font-size: clamp(32px, 8vw, 40px);
+  }
+
+  .footerNav {
+    font-size: 14px;
+    gap: 1rem;
+  }
+
+  .copy {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,149 @@
+/* src/OurWorksSection.module.css */
+
+.ourWorksSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically for desktop */
+  align-items: center;
+  overflow: hidden;
+  position: relative; /* Essential for containing absolute children like .heading */
+}
+
+.heading {
+  position: absolute; /* Absolute position for desktop cut-through */
+  top: 40%; /* Positioned for desktop cut-through effect */
+  left: 0;
+  right: 0;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  pointer-events: none; /* Allows clicks/interactions to pass through the text on desktop */
+  /* NO transform here. This is crucial to prevent a new stacking context from interfering. */
+  /* NO z-index here. Its internal text layers will compare directly to imageGrid (based on your description). */
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Desktop: 3-column layout */
+  gap: 80px;
+  place-items: center;
+  position: relative; /* This creates a stacking context for its children */
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  z-index: 3; /* **CRUCIAL CHANGE:** This will place the images between
+                 CuttingTextOverlay's behindLayer (z-index 1) and frontLayer (z-index 5),
+                 *if the stacking contexts align as you observe*. */
+}
+
+.image {
+  width: 80%;
+  max-width: 220px;
+  height: auto;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  /* The individual image transforms (.img1, .img2, etc.) are fine, as they create
+     their own sub-stacking contexts for the image itself, but don't derail the
+     main z-index order established by .imageGrid. */
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+/* Optional: scatter effect by nudging individual items (Desktop only) */
+.img1 {
+  width: 200px;
+  height: 250px;
+  transform: translate(0, 0) rotate(var(--rotation-angle, 0deg));
+}
+.img2 {
+  width: 270px;
+  height: 230px;
+  transform: translate(-10px, 20px) rotate(var(--rotation-angle, 0deg));
+}
+.img3 {
+  width: 230px;
+  height: 290px;
+  transform: translate(20px, -10px) rotate(var(--rotation-angle, 0deg));
+}
+.img4 {
+  width: 250px;
+  height: 250px;
+  transform: translate(0px, 30px) rotate(var(--rotation-angle, 0deg));
+}
+.img5 {
+  width: 190px;
+  height: 220px;
+  transform: translate(-15px, 0px) rotate(var(--rotation-angle, 0deg));
+}
+.img6 {
+  width: 260px;
+  height: 240px;
+  transform: translate(10px, 10px) rotate(var(--rotation-angle, 0deg));
+}
+
+/* ========================================================= */
+/* Responsive Media Queries for Mobile View */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+  .ourWorksSection {
+    /* Adjust for mobile: content flows from top, no vertical centering */
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center; /* Keep centered horizontally */
+    padding-top: 50px; /* Add some space from the top of the viewport */
+    min-height: auto; /* Let height adjust to content on mobile */
+    flex-direction: column; /* Ensure vertical stacking of heading and grid */
+    padding-inline: 4%; /* Add horizontal padding for mobile */
+  }
+
+  .heading {
+    position: absolute; /* Keep absolute positioning to preserve z-index behavior for outline effect */
+    top: 5%; /* Position at the top of the section for mobile */
+    width: 100%; /* Allow heading to take full available width within padding */
+    margin: 0 auto; /* Keep centered */
+    pointer-events: none; /* Keep pointer-events none to allow clicks through to images if overlapping */
+  }
+
+  .imageGrid {
+    margin-top: -80px;
+    grid-template-columns: repeat(2, 1fr); /* Mobile: 2-column layout */
+    gap: 30px; /* Adjust gap for mobile */
+    width: 100%; /* Make grid take up full width within padding */
+    max-width: none; /* Remove desktop max-width constraint */
+    margin-top: 200px; /* **CRUCIAL:** Push image grid down below the absolute-positioned heading.
+                                 Adjust this value based on the actual height of your heading to avoid overlap/gaps. */
+    z-index: 3; /* Maintain z-index for cut-through effect */
+    position: relative; /* Ensure it continues to participate in z-index */
+  }
+
+  /* Reset individual image transforms for mobile for a cleaner 2-column layout */
+  .img1,
+  .img2,
+  .img3,
+  .img4,
+  .img5,
+  .img6 {
+    width: 90%; /* All images equal width in their columns */
+    height: auto;
+    transform: rotate(
+      var(--rotation-angle, 0deg)
+    ); /* Keep rotation, remove translation */
+  }
+}
+
+/* Further Mobile Adjustments for smaller screens */
+@media (max-width: 480px) {
+  .ourWorksSection {
+    padding-top: 3rem;
+    margin-top: 10%;
+  }
+  .heading {
+    top: 3%; /* Slight adjustment for very small screens */
+  }
+  .imageGrid {
+    gap: 40px;
+    margin-top: 30px; /* Adjust margin for very small screens */
+  }
+}

@@ -1,0 +1,266 @@
+/* --- 1. CSS Reset & Base HTML Styles --- */
+
+/* Universal Box-Sizing and Margin/Padding Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML Base Styles */
+html {
+  font-size: 1rem; /* Defines 1rem = 16px for responsive scaling */
+  line-height: 1.5;
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+  -webkit-font-smoothing: antialiased; /* Smoother font rendering for Webkit */
+  -moz-osx-font-smoothing: grayscale; /* Smoother font rendering for Firefox on macOS */
+}
+
+/* Body Base Styles */
+body {
+  font-family: var(--font-family-body); /* Set body font from variables */
+  /* --- REFINEMENT: Consistent variable names --- */
+  color: var(--color-text); /* Use the --color-text variable directly */
+  background-color: var(
+    --color-background
+  ); /* Use the --color-background variable directly */
+  /* --- End REFINEMENT --- */
+  overflow-x: hidden; /* Prevent horizontal scrollbars */
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  display: flex; /* Use flex to help footer stick to bottom later if needed */
+  flex-direction: column;
+}
+
+/* Link Resets */
+a {
+  text-decoration: none; /* Remove underlines from links */
+  color: inherit; /* Inherit color from parent */
+  cursor: pointer; /* Ensure pointer cursor */
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline on hover for clarity */
+}
+
+/* List Resets */
+ul,
+ol {
+  list-style: none; /* Remove default bullet points/numbers */
+}
+
+/* Button Resets */
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit; /* Inherit outline style */
+  text-align: inherit; /* Inherit text alignment */
+}
+
+/* Image & Video Resets */
+img,
+video {
+  max-width: 100%; /* Ensure images/videos scale responsively */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Removes extra space below inline images */
+}
+
+.svg-bg {
+  position: absolute;
+  padding: 1%;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Form Element Resets (minimal) */
+input,
+textarea,
+select,
+button {
+  font-family: inherit; /* Inherit font from body */
+  font-size: inherit; /* Inherit font size */
+}
+
+header,
+footer {
+  max-width: 90%; /* Your desired max-width for large screens */
+  margin: 0 auto; /* Centers the content */
+  box-sizing: border-box; /* Ensures padding is included within max-width */
+}
+
+section {
+  position: relative;
+  max-width: 90%; /* Your desired max-width for large screens */
+  margin: 0 auto; /* Centers the content */
+  padding: 10% 1%; /* Initial padding */
+  box-sizing: border-box; /* Ensures padding is included within max-width */
+}
+
+/* --- 2. Global CSS Variables (Custom Properties) --- */
+
+:root {
+  /* Colors */
+  --color-primary: #f7e8c6;
+  --color-background: #ffffff;
+  --color-heading: #000000;
+  --color-text: #212121; /* This is the main text color */
+
+  /* --- REFINEMENT: Remove redundant vars if not used, or make consistent --- */
+  /* If you need dark/light variations, define them clearly: */
+  /* --color-text-dark: #212121; */
+  /* --color-text-light: #fefefe; */
+  /* --color-background-light: #ffffff; */
+  /* For now, assuming --color-text and --color-background are the main ones */
+  /* --- End REFINEMENT --- */
+
+  /* Typography */
+  --font-family-heading: "Bebas Neue", sans-serif;
+  --font-family-body: "Space Grotesk", sans-serif;
+
+  --font-size-base: 1rem;
+  --font-size-small: 0.875rem;
+
+  --font-size-h1: 5.2rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 1.8rem;
+  --font-size-h4: 1.5rem;
+  --font-size-h5: 1.25rem;
+  --font-size-h6: 1rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* Border Radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  /* Box Shadows */
+  --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-speed-fast: 0.15s;
+  --transition-speed-normal: 0.3s;
+  --transition-ease: ease-in-out;
+}
+
+/* --- 3. Base Typography (using variables) --- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  /* --- REFINEMENT: Use the consistent variable name --- */
+  color: var(
+    --color-heading
+  ); /* Assuming --color-heading is for all headings */
+  /* Or use var(--color-text) if all body/heading text is the same color by default */
+  /* --- End REFINEMENT --- */
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm); /* Default bottom margin for headings */
+}
+
+h1 {
+  font-size: clamp(2rem, 4.5vw + 0.5rem, var(--font-size-h1));
+}
+h2 {
+  font-size: var(--font-size-h2);
+}
+h3 {
+  font-size: var(--font-size-h3);
+}
+h4 {
+  font-size: var(--font-size-h4);
+}
+h5 {
+  font-size: var(--font-size-h5);
+}
+h6 {
+  font-size: var(--font-size-h6);
+}
+
+p {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  /* --- REFINEMENT: Use the consistent variable name --- */
+  color: var(--color-text); /* Use the --color-text variable directly */
+  /* --- End REFINEMENT --- */
+  line-height: 1.6; /* More readable line height for paragraphs */
+  margin-bottom: var(--spacing-md); /* Default bottom margin for paragraphs */
+}
+
+/* --- 4. Global Layout Helpers (Optional but Recommended) --- */
+
+/* Utility classes (use sparingly) */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.mt-sm {
+  margin-top: var(--spacing-sm);
+}
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.stroke-effect {
+  -webkit-text-stroke: 0.0625rem rgb(0, 0, 0);
+  color: transparent;
+}
+
+@media (max-width: 768px) {
+  .stroke-effect {
+    -webkit-text-stroke: 0.05rem rgb(0, 0, 0); /* Slightly thinner (e.g., 0.8px) */
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+  .stroke-effect {
+    -webkit-text-stroke: 0.03125rem rgb(0, 0, 0); /* Even thinner (e.g., 0.5px) */
+  }
+}
+
+.dynamic-rotate {
+  transform: rotate(
+    var(--rotation-angle, 0deg)
+  ); /* Defaults to 0deg if not set */
+  transition: transform var(--transition-speed-normal) var(--transition-ease); /* Inherit global transition variables */
+  /* You can add other common styles here if all dynamically rotated items share them */
+}
