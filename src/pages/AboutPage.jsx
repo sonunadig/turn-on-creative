@@ -1,18 +1,17 @@
 // src/pages/AboutPage.jsx
 import React from "react";
+import styles from "./AboutPage.module.css";
 
 function AboutPage() {
   return (
-    <div
-      style={{
-        padding: "100px 20px",
-        textAlign: "center",
-        minHeight: "calc(100vh - 100px)",
-      }}
-    >
-      <h1>About Us Page</h1>
-      <p>This is where your About Us content will go.</p>
-    </div>
+    <>
+      <div className={styles.banner}>
+        <h1 className={styles.bannerHeading}>
+          The Crew Behind the Camera and{" "}
+          <a className="stroke-effect">the Chaos</a>
+        </h1>
+      </div>
+    </>
   );
 }
 

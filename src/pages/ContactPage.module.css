@@ -1,0 +1,329 @@
+.banner {
+  padding-block: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bannerHeading {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.2;
+  padding: 0 1.5rem;
+  margin: 0;
+}
+
+/* src/pages/ContactPage.module.css */
+
+.contactPage {
+  min-height: 100vh; /* Ensure it takes full viewport height */
+  padding: 2rem 0; /* Top padding to clear fixed navbar, horizontal padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+}
+
+.borderedContainer {
+  width: 100%;
+  max-width: 85%; /* Max width of the entire bordered section */
+  border: 1px solid #000000; /* The border around the main content */
+  padding: 3rem; /* Internal padding within the bordered container */
+}
+
+/* First Row: Heading and Description */
+.headingRow {
+  text-align: left;
+  margin-bottom: 3rem; /* Space between heading row and content row */
+}
+
+.mainHeading {
+  font-size: 3.8rem; /* Large heading size */
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px; /* Constrain description width */
+}
+
+/* Second Row: Two Equal Columns */
+.contentRow {
+  display: flex;
+  gap: 3rem; /* Space between the two columns */
+  align-items: center; /* Align content to the top within columns */
+}
+
+.contactFormContainer,
+.contactInfo {
+  flex: 1; /* Makes columns equal width */
+  min-width: 300px; /* Minimum width before wrapping */
+  /* Remove individual padding, it's handled by .borderedContainer or form-specific padding */
+}
+
+/* Contact Form Styling */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between form groups */
+  border-radius: 8px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formRow {
+  display: flex;
+  gap: 1.5rem; /* Space between phone and email fields */
+  flex-wrap: wrap;
+}
+
+.phoneFieldGroup {
+  /* flex-grow | flex-shrink | flex-basis */
+  flex: 2 1 0%; /* Take 40% of the available space */
+  /* On smaller screens, allow it to take full width */
+}
+
+.emailFieldGroup {
+  /* flex-grow | flex-shrink | flex-basis */
+  flex: 3 1 0%; /* Take 60% of the available space */
+  /* On smaller screens, allow it to take full width */
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.label {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none; /* IMPORTANT: Remove all default borders */
+  border-bottom: 1px solid #000000; /* Add border only to the bottom */
+  font-size: 1rem;
+  font-family: inherit; /* Inherit font from body */
+  background-color: #c4000000; /* White background for inputs */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #007bff; /* Highlight on focus */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.textarea {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.submitButton {
+  /* You can use your existing Button component's styles */
+  align-self: flex-start; /* Align button to the start of the form */
+  padding: 0.6rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #333;
+}
+
+/* Contact Info Styling */
+.contactInfo {
+  padding: 3rem;
+  border: 1px solid #000;
+}
+
+.contactHeading {
+  font-size: 1.8rem;
+  color: #000;
+  margin-bottom: 0.3rem;
+}
+
+.infoHeading {
+  font-size: 1.8rem;
+  color: #000;
+  margin-top: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.infoText {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.contactDetails p {
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  line-height: 1.5;
+}
+
+.contactDetails strong {
+  color: #000;
+}
+
+.socials {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1.5rem; /* Space between social links */
+}
+
+.socials a {
+  font-size: 1.2rem; /* Size of social link text */
+  font-weight: 600;
+  color: #007bff; /* Example social link color */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.socials a:hover {
+  color: #0056b3; /* Darker on hover */
+}
+
+/* ========================================================= */
+/* Responsive Media Queries */
+/* ========================================================= */
+
+@media (max-width: 1024px) {
+  .borderedContainer {
+    padding: 2.5rem;
+  }
+
+  .mainHeading {
+    font-size: 3rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .contentRow {
+    flex-direction: column; /* Stack columns on smaller screens */
+    align-items: center; /* Center stacked columns */
+    gap: 2.5rem;
+  }
+
+  .contactFormContainer,
+  .contactInfo {
+    width: 100%; /* Take full width when stacked */
+    max-width: 600px; /* Constrain max width for readability */
+    min-width: unset; /* Remove min-width */
+  }
+
+  .contactForm,
+  .contactInfo {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactPage {
+    padding: 0 0 6rem 0;
+  }
+
+  .borderedContainer {
+    padding: 1.5rem;
+  }
+
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .headingRow {
+    margin-bottom: 2rem;
+  }
+
+  .contentRow {
+    gap: 2rem;
+  }
+
+  .contactFormContainer,
+  .contactInfo {
+    max-width: 100%; /* Allow full width on smaller screens */
+  }
+
+  .formRow {
+    flex-direction: column; /* This already stacks the phone and email fields */
+    gap: 1rem;
+  }
+
+  /* Reset flex properties for mobile to make them take full width */
+  .phoneFieldGroup,
+  .emailFieldGroup {
+    flex: 1 1 100%; /* Grow and shrink, take 100% basis */
+  }
+
+  .input,
+  .textarea {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .submitButton {
+    font-size: 1rem;
+    padding: 0.7rem 2rem;
+  }
+
+  .infoHeading {
+    font-size: 1.5rem;
+  }
+
+  .infoText,
+  .contactDetails p,
+  .socials a {
+    font-size: 0.9rem;
+  }
+
+  .socials {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .borderedContainer {
+    padding: 1.4rem;
+  }
+  .mainHeading {
+    font-size: 2rem;
+  }
+  .description {
+    font-size: 0.85rem;
+  }
+  .contactForm {
+    padding: 0;
+  }
+  .contactInfo {
+    padding: 1rem;
+  }
+}
