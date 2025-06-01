@@ -1,15 +1,25 @@
-.banner {
-  padding-block: 6rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.aboutUsPage {
+  width: 100%;
+  padding: 4rem 1rem;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
-.bannerHeading {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  line-height: 1.2;
-  padding: 0 1.5rem;
-  margin: 0;
+@media (max-width: 1024px) {
+  .aboutUsPage {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutUsPage {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutUsPage {
+    padding: 1rem 0.5rem;
+    margin-top: 10%;
+  }
 }

@@ -1,3 +1,6 @@
+/* src/pages/WorksPage.module.css */
+
+/* Banner Styling (similar to ContactPage's banner) */
 .banner {
   padding-block: 6rem;
   display: flex;
@@ -12,4 +15,144 @@
   line-height: 1.2;
   padding: 0 1.5rem;
   margin: 0;
+}
+
+/* Portfolio Section Styling */
+.portfolioSection {
+  padding: 4rem 2rem; /* Padding around the entire portfolio section */
+}
+
+.portfolioGrid {
+  display: grid;
+  /* Two columns, flexible width for each */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10rem; /* Space between grid items */
+  max-width: 1100px; /* Max width for the grid container */
+  margin: 0 auto; /* Center the grid */
+  align-items: start; /* Align items to the start of their grid cell vertically */
+}
+
+.portfolioItem {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Ensures image corners are rounded */
+  transition: transform 0.3s ease;
+  position: relative; /* For rotation, if desired */
+}
+
+.portfolioItem:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.imageWrapper {
+  width: 100%;
+  /* Use aspect ratio for consistent image sizing within different size containers */
+  /* This helps maintain image proportions while allowing height variations */
+}
+
+.portfolioImage {
+  width: 100%;
+  height: 100%; /* Fill the wrapper */
+  object-fit: cover; /* Crop to cover the area */
+  display: block; /* Remove extra space below image */
+}
+
+/* Specific height classes for varying sizes */
+.small .imageWrapper {
+  aspect-ratio: 16/9; /* Wider */
+}
+
+.medium .imageWrapper {
+  aspect-ratio: 16/9; /* Standard widescreen */
+}
+
+.large .imageWrapper {
+  aspect-ratio: 16/9; /* Taller */
+}
+
+/* Rotations for "spread out" look (adjust values as desired) */
+.rotate-left {
+  transform: rotate(-3deg);
+  margin-top: 1rem; /* Adjust position slightly to reduce overlap */
+}
+
+.rotate-right {
+  transform: rotate(3deg);
+  margin-top: 1rem; /* Adjust position slightly */
+}
+
+/* Ensure rotations don't cause issues on smaller screens */
+@media (max-width: 768px) {
+  .rotate-left,
+  .rotate-right {
+    transform: none; /* Disable rotation on smaller screens */
+    margin-top: 0;
+  }
+}
+
+.detailsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-top: 1px solid #eee;
+}
+
+.itemName {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.itemCategory {
+  font-size: 0.9rem;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================================= */
+/* Responsive Media Queries */
+/* ========================================================= */
+
+@media (max-width: 1024px) {
+  .portfolioSection {
+    padding: 3rem 1.5rem;
+  }
+  .portfolioGrid {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolioSection {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+  .portfolioGrid {
+    /* Switch to single column on smaller screens */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .bannerHeading {
+    font-size: clamp(2rem, 8vw, 3rem); /* Smaller font on very small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolioItem {
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  .detailsRow {
+    flex-direction: column; /* Stack name and category */
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .itemName {
+    font-size: 1rem;
+  }
+  .itemCategory {
+    font-size: 0.8rem;
+  }
 }

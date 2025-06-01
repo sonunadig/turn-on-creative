@@ -1,15 +1,28 @@
-// src/pages/AboutPage.jsx
 import React from "react";
 import styles from "./AboutPage.module.css";
+
+import BannerSection from "../assets/sections/BannerSection";
+import ImageGallerySection from "../assets/sections/ImageGallerySection";
+import OurStorySection from "../assets/sections/OurStorySection";
+import TeamSection from "../assets/sections/TeamSection";
+
+import smallLeftImage from "../assets/images/Mask group-3.png";
+import bigCenterImage from "../assets/images/Mask group-4.png";
+import smallRightImage from "../assets/images/Mask group-6.png";
+import aboutUsImage from "../assets/images/Mask group-1.png";
 
 function AboutPage() {
   return (
     <>
-      <div className={styles.banner}>
-        <h1 className={styles.bannerHeading}>
-          The Crew Behind the Camera and{" "}
-          <a className="stroke-effect">the Chaos</a>
-        </h1>
+      <BannerSection />
+      <div className={styles.aboutUsPage}>
+        <ImageGallerySection
+          smallLeftImage={smallLeftImage}
+          bigCenterImage={bigCenterImage}
+          smallRightImage={smallRightImage}
+        />{" "}
+        <OurStorySection aboutUsImage={aboutUsImage} />
+        <TeamSection />
       </div>
     </>
   );

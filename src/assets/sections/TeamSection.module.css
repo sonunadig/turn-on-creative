@@ -1,0 +1,278 @@
+/* src/sections/TeamSection.module.css */
+
+.teamSection {
+  position: relative;
+  overflow: hidden;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding-top: 3%;
+}
+
+.teamHeadingContainer {
+  position: absolute;
+  top: 6%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teamHeadingText {
+  font-size: clamp(3rem, 10vw, 6.5rem);
+  text-align: center;
+  padding: 0;
+}
+
+/* ========================================================= */
+/* TEAM GRID LAYOUT */
+/* ========================================================= */
+.teamGridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5rem;
+  position: relative;
+  z-index: 3;
+  margin-top: 4rem;
+  max-width: 1250px;
+  padding: 0 1rem;
+}
+
+.teamGridItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #000000;
+}
+
+.teamImage {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.teamName {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.teamDesignation {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* ========================================================= */
+/* TEAM GRID LAYOUT (Desktop) */
+/* ========================================================= */
+.teamGridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+  gap: 6rem; /* Spacing between grid items */
+  position: relative;
+  z-index: 3; /* Crucial for cutting through the text overlay */
+  margin-top: 4rem; /* Adjust this to control vertical overlap with heading */
+  max-width: 1250px;
+  padding: 0 1rem;
+}
+
+.teamGridItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #000000;
+  /* Add padding/background for visual separation if needed on desktop */
+  /* background-color: #fff; */
+  /* padding: 1.5rem; */
+  /* border-radius: 8px; */
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
+}
+
+.teamImage {
+  width: 350px; /* Fixed width for desktop */
+  height: 300px; /* Fixed height for desktop */
+  object-fit: cover;
+  margin-bottom: 1rem;
+  /* border: 3px solid #f7e8c6; (Original from previous turn, put back if needed) */
+}
+
+.teamName {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.teamDesignation {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* ========================================================= */
+/* RESPONSIVE MEDIA QUERIES */
+/* ========================================================= */
+
+/* Tablet Landscape / Small Laptop (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .teamSection {
+    padding-top: 6rem;
+  }
+
+  .teamHeadingContainer {
+    top: 10%; /* Adjust heading position for smaller screens */
+    max-width: 900px;
+  }
+
+  .teamHeadingText {
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+  }
+
+  .teamGridContainer {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+    gap: 3rem; /* Reduce gap for more space */
+    margin-top: 3rem; /* Adjust overlap */
+    max-width: 900px;
+  }
+
+  .teamGridItem {
+    padding: 1rem; /* Add padding for better spacing */
+  }
+
+  .teamImage {
+    width: 100%; /* Make images fill container */
+    max-width: 200px; /* Limit max size */
+    height: auto; /* Adjust height automatically */
+    aspect-ratio: 7 / 6; /* Maintain original aspect ratio */
+  }
+
+  .teamName {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .teamDesignation {
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablet Portrait / Mobile Landscape (max-width: 768px) */
+@media (max-width: 768px) {
+  .teamSection {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+
+  .teamHeadingContainer {
+    top: 8%; /* Further adjust heading position */
+    max-width: 600px;
+  }
+
+  .teamHeadingText {
+    font-size: clamp(2rem, 7vw, 4.5rem);
+    white-space: normal; /* Allow text to wrap */
+  }
+
+  .teamGridContainer {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile view */
+    gap: 2rem; /* Further reduce gap */
+    margin-top: 2.5rem; /* Adjust overlap */
+    max-width: 600px;
+  }
+
+  .teamGridItem {
+    padding: 0.75rem;
+  }
+
+  .teamImage {
+    width: 100%;
+    max-width: 150px; /* Limit max size */
+    aspect-ratio: 7 / 6; /* Maintain aspect ratio */
+  }
+
+  .teamName {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .teamDesignation {
+    font-size: 0.8rem;
+  }
+}
+
+/* Small Mobile Landscape / Medium Mobile Portrait (max-width: 600px) */
+@media (max-width: 600px) {
+  .teamGridContainer {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Keep 2 columns on slightly smaller mobile screens */
+    gap: 1.5rem;
+  }
+  .teamImage {
+    max-width: 120px; /* Adjusted max-width for images to fit 2 columns well */
+  }
+  .teamName {
+    font-size: 0.95rem;
+  }
+  .teamDesignation {
+    font-size: 0.75rem;
+  }
+}
+
+/* Small Mobile Portrait (max-width: 480px) */
+@media (max-width: 480px) {
+  .teamSection {
+    padding-top: 3rem;
+  }
+
+  .teamHeadingContainer {
+    top: 6%; /* Adjust for very small screens */
+    max-width: 300px;
+  }
+
+  .teamHeadingText {
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
+  }
+
+  .teamGridContainer {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* **Changed to 2 columns for very small mobile screens** */
+    gap: 1rem; /* Further reduce gap */
+    margin-top: 2rem; /* Adjust overlap */
+    max-width: 300px;
+    padding: 0 0.5rem; /* Add a bit more padding inside grid container itself for smaller views */
+  }
+
+  .teamGridItem {
+    padding: 0.5rem;
+  }
+
+  .teamImage {
+    width: 100%;
+    max-width: 120px; /* Adjusted max-width for images to fit 2 columns on very small screens */
+    aspect-ratio: 7 / 6; /* Maintain aspect ratio */
+  }
+
+  .teamName {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .teamDesignation {
+    font-size: 0.8rem;
+  }
+}
