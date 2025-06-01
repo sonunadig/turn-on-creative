@@ -154,6 +154,36 @@
   background-color: #333;
 }
 
+.successMessage {
+  color: #28a745; /* A pleasant green */
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #28a745;
+  background-color: #d4edda;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.errorMessage {
+  color: #dc3545; /* A strong red */
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dc3545;
+  background-color: #f8d7da;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Style for disabled submit button */
+.submitButton:disabled {
+  opacity: 0.6; /* Make it slightly transparent */
+  cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+  background-color: #cccccc; /* Example: grey it out */
+  color: #666666;
+}
+
 /* Contact Info Styling */
 .contactInfo {
   padding: 3rem;
