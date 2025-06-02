@@ -1,6 +1,6 @@
 // src/App.jsx
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./assets/components/Navbar.jsx"; // Your "Header"
 import Footer from "./assets/components/Footer.jsx";
 
@@ -40,18 +40,16 @@ function App() {
           padding: "2rem",
         }}
       >
-        <Router>
-          <Navbar />
-          <main>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about-us" element={<AboutPage />} />
-              <Route path="/our-works" element={<WorksPage />} />
-              <Route path="/contact-us" element={<ContactPage />} />
-            </Routes>
-          </main>
-          <Footer />
-        </Router>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about-us" element={<AboutPage />} />
+            <Route path="/our-works" element={<WorksPage />} />
+            <Route path="/contact-us" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
     </div>
   );
