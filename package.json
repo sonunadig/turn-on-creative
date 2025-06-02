@@ -1,8 +1,8 @@
 {
   "name": "turn-on-creative",
-  "private": true,
   "version": "0.0.0",
   "homepage": "https://sonunadig.github.io/turn-on-creative",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
