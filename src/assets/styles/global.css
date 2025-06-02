@@ -16,6 +16,7 @@ html {
   scroll-behavior: smooth; /* Smooth scrolling for anchor links */
   -webkit-font-smoothing: antialiased; /* Smoother font rendering for Webkit */
   -moz-osx-font-smoothing: grayscale; /* Smoother font rendering for Firefox on macOS */
+  overflow-x: hidden;
 }
 
 /* Body Base Styles */
